@@ -25,4 +25,9 @@ app.use('*', (req, res, next) => {
   return res.status(404).json('Route Not Found')
 })
 
+app.use((err, req, res, next) => {
+  console.error(err)
+  res.status(500).json({ message: 'Internal Server Error' })
+})
+
 module.exports = app
